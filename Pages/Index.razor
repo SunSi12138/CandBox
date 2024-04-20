@@ -1,9 +1,17 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>运行</PageTitle>
 
-<h1>Hello, world!</h1>
+@* 一个大大的Textare输入框 *@
+<textarea class="form-control" rows="10" @bind="sandbox.Script"></textarea>
 
-Welcome to your new app.
+@* 一个按钮 *@
+<button class="btn btn-primary mt-2" @onclick="sandbox.Run">运行</button>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@* 一个输出框 *@
+<textarea class="form-control mt-2" rows="10" readonly>@sandbox.Output</textarea>
+@code
+{
+    private CodeSandBox sandbox = new CodeSandBox([typeof(File)]);
+
+}
